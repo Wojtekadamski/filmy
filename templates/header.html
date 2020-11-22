@@ -40,6 +40,11 @@
             <li {% if active == 'add_studio_model' %} class="active"{% endif %}>
                 <a href="{% url 'add_studio_model' %}">dodaj studio (model)</a>
             </li>
+            <li {% if active == 'add_person_generic' %} class="active"{% endif %}>
+                <a href="{% url 'add_person_generic' %}">dodaj osobe (generic model)</a>
+            </li><li {% if active == 'add_studio_generic' %} class="active"{% endif %}>
+                <a href="{% url 'add_studio_generic' %}">dodaj osobe (generic model)</a>
+            </li>
 
         </ul>
     </nav>

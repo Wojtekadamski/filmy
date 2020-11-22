@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="SQLite - db.sqlite3">
-  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.19">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.18">
     <root id="1">
       <ServerVersion>3.31.1</ServerVersion>
     </root>
@@ -35,7 +35,7 @@
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="24" parent="6" name="name">
       <Position>2</Position>
@@ -60,7 +60,7 @@
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="29" parent="7" name="group_id">
       <Position>2</Position>
@@ -108,7 +108,7 @@ permission_id</ColNames>
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="38" parent="8" name="content_type_id">
       <Position>2</Position>
@@ -150,7 +150,7 @@ codename</ColNames>
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="46" parent="9" name="password">
       <Position>2</Position>
@@ -219,7 +219,7 @@ codename</ColNames>
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="60" parent="10" name="user_id">
       <Position>2</Position>
@@ -267,7 +267,7 @@ group_id</ColNames>
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="69" parent="11" name="user_id">
       <Position>2</Position>
@@ -315,7 +315,7 @@ permission_id</ColNames>
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="78" parent="12" name="action_time">
       <Position>2</Position>
@@ -383,7 +383,7 @@ permission_id</ColNames>
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="92" parent="13" name="app_label">
       <Position>2</Position>
@@ -409,7 +409,7 @@ model</ColNames>
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="97" parent="14" name="app">
       <Position>2</Position>
@@ -464,7 +464,7 @@ model</ColNames>
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="108" parent="16" name="name">
       <Position>2</Position>
@@ -479,7 +479,7 @@ model</ColNames>
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="111" parent="17" name="title">
       <Position>2</Position>
@@ -491,138 +491,167 @@ model</ColNames>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="113" parent="17" name="directory_id">
+    <column id="113" parent="17" name="Studio_id">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
-    <index id="114" parent="17" name="filmyapp_film_directory_id_56d7d3ff">
+    <column id="114" parent="17" name="directory_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <column id="115" parent="17" name="screen_play_id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <index id="116" parent="17" name="filmyapp_film_Studio_id_882dc0a0">
+      <ColNames>Studio_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="117" parent="17" name="filmyapp_film_directory_id_56d7d3ff">
       <ColNames>directory_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="115" parent="17">
+    <index id="118" parent="17" name="filmyapp_film_screen_play_id_32cac976">
+      <ColNames>screen_play_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="119" parent="17">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="116" parent="17">
+    <foreign-key id="120" parent="17">
+      <ColNames>Studio_id</ColNames>
+      <RefTableName>filmyapp_studio</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <foreign-key id="121" parent="17">
       <ColNames>directory_id</ColNames>
       <RefTableName>filmyapp_person</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <column id="117" parent="18" name="id">
+    <foreign-key id="122" parent="17">
+      <ColNames>screen_play_id</ColNames>
+      <RefTableName>filmyapp_person</RefTableName>
+      <RefColNames>id</RefColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+    </foreign-key>
+    <column id="123" parent="18" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="118" parent="18" name="film_id">
+    <column id="124" parent="18" name="film_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="119" parent="18" name="category_id">
+    <column id="125" parent="18" name="category_id">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="120" parent="18" name="filmyapp_film_category_film_id_category_id_9555fe5e_uniq">
+    <index id="126" parent="18" name="filmyapp_film_category_film_id_category_id_9555fe5e_uniq">
       <ColNames>film_id
 category_id</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="121" parent="18" name="filmyapp_film_category_film_id_7a5f1d2d">
+    <index id="127" parent="18" name="filmyapp_film_category_film_id_7a5f1d2d">
       <ColNames>film_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="122" parent="18" name="filmyapp_film_category_category_id_507f2afe">
+    <index id="128" parent="18" name="filmyapp_film_category_category_id_507f2afe">
       <ColNames>category_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="123" parent="18">
+    <key id="129" parent="18">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="124" parent="18">
+    <foreign-key id="130" parent="18">
       <ColNames>film_id</ColNames>
       <RefTableName>filmyapp_film</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <foreign-key id="125" parent="18">
+    <foreign-key id="131" parent="18">
       <ColNames>category_id</ColNames>
       <RefTableName>filmyapp_category</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <column id="126" parent="19" name="id">
+    <column id="132" parent="19" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="127" parent="19" name="first_name">
+    <column id="133" parent="19" name="first_name">
       <Position>2</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="128" parent="19" name="last_name">
+    <column id="134" parent="19" name="last_name">
       <Position>3</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="129" parent="19">
+    <key id="135" parent="19">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="130" parent="20" name="id">
+    <column id="136" parent="20" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="131" parent="20" name="name">
+    <column id="137" parent="20" name="name">
       <Position>2</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="132" parent="20" name="city">
+    <column id="138" parent="20" name="city">
       <Position>3</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="133" parent="20">
+    <key id="139" parent="20">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="134" parent="21" name="type">
+    <column id="140" parent="21" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="135" parent="21" name="name">
+    <column id="141" parent="21" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="136" parent="21" name="tbl_name">
+    <column id="142" parent="21" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="137" parent="21" name="rootpage">
+    <column id="143" parent="21" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="138" parent="21" name="sql">
+    <column id="144" parent="21" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="139" parent="22" name="name">
+    <column id="145" parent="22" name="name">
       <Position>1</Position>
     </column>
-    <column id="140" parent="22" name="seq">
+    <column id="146" parent="22" name="seq">
       <Position>2</Position>
     </column>
   </database-model>

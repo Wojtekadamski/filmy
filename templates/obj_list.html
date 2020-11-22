@@ -1,5 +1,17 @@
-<ul>
+
+
+{% extends 'base.html' %}
+{% block header %}
+    {% include 'header.html'  %}
+{% endblock %}
+
+{% block content %}
+
+    <ul>
         {% for item in objects %}
-            <li>{{ item }}</li>
+            <li><a href="{{ item.get_detail_url }}">{{ item }}</a></li>
         {% endfor %}
     </ul>
+
+
+{% endblock %}

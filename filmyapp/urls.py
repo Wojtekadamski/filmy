@@ -32,4 +32,9 @@ path("add_studio_form/", views.AddStudioFullFormView.as_view(), name= 'add_studi
 path("add_movie_model/", views.AddMovieModelView.as_view(), name= 'add_movie_model'),
 path("add_person_model/", views.AddPersonModelView.as_view(), name= 'add_person_model'),
 path("add_studio_model/", views.AddStudioModelView.as_view(), name= 'add_studio_model'),
+ path("add_person_generic/", views.AddPersonGenericView.as_view(), name= 'add_person_generic'),
+ path("add_studio_generic/", views.AddStudioGenericView.as_view(), name='add_studio_generic'),
+ path("edit_movie/<int:pk>/", views.MovieUpdateView.as_view(), name='edit_movie'),
+ path("edit_person/<int:pk>/", views.PersonUpdateView.as_view(), name='edit_person'),
+path("editGenericMovie/<int:pk>/", views.MovieGenericUpdateView.as_view(), name='edit_movie_generic'),
 ]

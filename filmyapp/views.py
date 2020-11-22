@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views import View
+from django.views.generic import CreateView, UpdateView
 
 from filmyapp.models import Person, Category, Studio, Film
 from filmyapp.forms import MovieForm, PersonForm, MovieFullForm, StudioFullForm, MovieModelForm, PersonModelForm, \
@@ -87,25 +88,25 @@ class AddStudioView(View):
 class ListMovieView(View):
     def get(self, request):
         movies = Film.objects.all()
-        return render(request, "movie_list.html", {'movies': movies})
+        return render(request, "obj_list.html", {'objects': movies})
 
 
 class ListPersonView(View):
     def get(self, request):
         persons = Person.objects.all()
-        return render(request, "person_list.html", {'persons': persons})
+        return render(request, "obj_list.html", {'objects': persons})
 
 
 class ListCategoriesView(View):
     def get(self, request):
         categories = Category.objects.all()
-        return render(request, "categories_list.html", {'categories': categories})
+        return render(request, "obj_list.html", {'objects': categories})
 
 
 class ListStudioView(View):
     def get(self, request):
         studios = Studio.objects.all()
-        return render(request, "studio_list.html", {'studios': studios})
+        return render(request, "obj_list.html", {'objects': studios})
 
 
 class AddMovieFullFormView(View):
@@ -155,26 +156,84 @@ class AddMovieModelView(View):
             return redirect(reverse('movies'))
         return render(request, 'add_obj.html', {'form': form})
 
+
 class AddPersonModelView(View):
     def get(self, request):
         form = PersonModelForm()
-        return render(request, 'add_obj.html', {'form':form})
+        return render(request, 'add_obj.html', {'form': form})
 
-    def post(self, request,):
+    def post(self, request, ):
         form = PersonModelForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect(reverse('add_person_model'))
-        return render(request, 'add_obj.html', {'form':form})
+        return render(request, 'add_obj.html', {'form': form})
+
 
 class AddStudioModelView(View):
     def get(self, request):
         form = StudioModelForm()
-        return render(request, 'add_obj.html', {'form':form})
+        return render(request, 'add_obj.html', {'form': form})
 
-    def post(self, request,):
+    def post(self, request, ):
         form = StudioModelForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect(reverse('add_studio_model'))
-        return render(request, 'add_obj.html', {'form':form})
+        return render(request, 'add_obj.html', {'form': form})
+
+
+class AddPersonGenericView(CreateView):
+    model = Person
+    fields = "__all__"
+    template_name = 'add_obj.html'
+    success_url = reverse_lazy("persons")
+
+
+class AddStudioGenericView(CreateView):
+    model = Studio
+    fields = "__all__"
+    template_name = 'add_obj.html'
+    success_url = reverse_lazy("studios")
+
+
+class MovieUpdateView(View):
+
+    def get(self, request, pk):
+        movie = Film.objects.get(pk=pk)
+        form = MovieModelForm(instance=movie)
+        return render(request, 'add_obj.html', {'form': form})
+
+    def post(self, request, pk):
+        movie = Film.objects.get(pk=pk)
+        form = MovieModelForm(request.POST, instance=movie)
+        if form.is_valid():
+            movie = form.save(commit=False)
+            movie.save()
+            form.save_m2m()
+            return redirect(reverse('movies'))
+        return render(request, 'add_obj.html', {'form': form})
+
+
+class PersonUpdateView(View):
+
+    def get(self, request, pk):
+        movie = Person.objects.get(pk=pk)
+        form = PersonModelForm(instance=movie)
+        return render(request, 'add_obj.html', {'form': form})
+
+    def post(self, request, pk):
+        movie = Person.objects.get(pk=pk)
+        form = PersonModelForm(request.POST, instance=movie)
+        if form.is_valid():
+            person = form.save(commit=False)
+            person.save()
+            return redirect(reverse('persons'))
+        return render(request, 'add_obj.html', {'form': form})
+
+
+class MovieGenericUpdateView(UpdateView):
+    model = Film
+    fields = "__all__"
+    template_name = 'add_obj.html'
+    success_url = reverse_lazy('movies')
