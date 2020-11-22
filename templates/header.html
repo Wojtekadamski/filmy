@@ -1,0 +1,46 @@
+<header>
+    <nav>
+        <ul>
+            <li {% if active == 'person' %} class="active"{% endif %}>
+                <a href="{% url 'person' %}">Osoba</a>
+            </li>
+            <li {% if active == 'category' %} class="active"{% endif %}>
+                <a href="{% url 'category' %}">Kategorie</a>
+            </li>
+            <li {% if active == 'studio' %} class="active"{% endif %}>
+                <a href="{% url 'studio' %}">Wytwórnie</a>
+            </li>
+            <li {% if active == 'movie' %} class="active"{% endif %}>
+                <a href="{% url 'movie' %}">Filmy</a>
+            </li>
+            <li {% if active == 'movies' %} class="active"{% endif %}>
+                <a href="{% url 'movies' %}">Filmy lista</a>
+
+            <li {% if active == 'persons' %} class="active"{% endif %}>
+                <a href="{% url 'persons' %}">Osoby lista</a>
+            </li>
+            <li {% if active == 'studios' %} class="active"{% endif %}>
+                <a href="{% url 'studios' %}">Wytwórnie lista</a>
+            </li>
+            <li {% if active == 'categories' %} class="active"{% endif %}>
+                <a href="{% url 'categories' %}">Kategorie lista</a>
+            </li>
+            <li {% if active == 'add_movie_form' %} class="active"{% endif %}>
+                <a href="{% url 'add_movie_form' %}">dodaj film (form)</a>
+            </li>
+            <li {% if active == 'add_studio_form' %} class="active"{% endif %}>
+                <a href="{% url 'add_studio_form' %}">dodaj studio (form)</a>
+            </li>
+            <li {% if active == 'add_movie_model' %} class="active"{% endif %}>
+                <a href="{% url 'add_movie_model' %}">dodaj film (model)</a>
+            </li>
+            <li {% if active == 'add_person_model' %} class="active"{% endif %}>
+                <a href="{% url 'add_person_model' %}">dodaj osobę (model)</a>
+            </li>
+            <li {% if active == 'add_studio_model' %} class="active"{% endif %}>
+                <a href="{% url 'add_studio_model' %}">dodaj studio (model)</a>
+            </li>
+
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block header %}
+    {% include 'header.html' with active='studios' %}
+{% endblock %}
+
+{% block content %}
+
+   <ul>
+      {% for elem in studios %}
+        <li>{{ elem.name }}, {{ elem.city }} </li>
+
+    {% endfor %}
+    </ul>
+
+{% endblock %}

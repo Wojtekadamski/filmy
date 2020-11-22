@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block header %}
+    {% include 'header.html' with active='movies' %}
+{% endblock %}
+
+{% block content %}
+
+    <ul>
+        {% for item in movies %}
+            <li>{{ item.title }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

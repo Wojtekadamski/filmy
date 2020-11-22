@@ -1,0 +1,14 @@
+<html>
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<h1> Baza Filmowa -- {{ date }}</h1>
+{% block header %}
+    {% include 'header.html' %}
+{% endblock %}
+{% block content %}
+{% endblock %}
+</body>
+</html>

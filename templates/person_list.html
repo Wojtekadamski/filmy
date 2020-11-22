@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block header %}
+    {% include 'header.html' with active='persons' %}
+{% endblock %}
+
+{% block content %}
+
+    <ul>
+        {% for item in persons %}
+            <li>{{ item.first_name }} {{ item.last_name }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

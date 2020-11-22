@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block header %}
+    {% include 'header.html' with active='movie' %}
+{% endblock %}
+{%  block content %}
+
+    <form method="post">
+    {% csrf_token %}
+    <p>title: <input type="text" name="first_name"></p>
+    <p>year: <input type="text" name="year"></p>
+        <p>category: <input type="text" name="category"></p>
+        <p>directory: <input type="text" name="directory"></p>
+    <p><input type="submit" value="prześlij"></p>
+    </form>
+
+{% endblock %}

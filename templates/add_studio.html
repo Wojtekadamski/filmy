@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% block header %}
+    {% include 'header.html' with active='studio' %}
+{% endblock %}
+{%  block content %}
+
+    <form method="post">
+    {% csrf_token %}
+    <p>name: <input type="text" name="name"></p>
+    <p>city: <input type="text" name="city"></p>
+    <p><input type="submit" value="prześlij"></p>
+    </form>
+
+    <ul>
+      {% for elem in studios %}
+        <li>{{ elem.name }}, {{ elem.city }} </li>
+
+    {% endfor %}
+    </ul>
+
+{% endblock %}

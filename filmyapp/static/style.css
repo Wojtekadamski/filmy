@@ -1,0 +1,38 @@
+header {
+    background: #AEC6CF;
+    padding: 20px 30px;
+    max-width: 100%;
+    margin: auto;
+}
+ nav {
+     display: inline-block;
+     align-content: center;
+     border-radius: 10px;
+ }
+    nav ul li a {
+   /* background: #EEE;*/
+    padding: 2px 10px;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #444;
+    border-radius: 10px;
+        background-color: inherit;
+}
+nav ul li a:hover {
+	background: #FFF;
+}
+nav ul li {
+    display: inline-block;
+    margin: 10px;
+    background: #EEE;
+    border-radius: 10px;
+}
+nav ul {
+    list-style: none;
+}
+
+.active{
+    background-color: #7adbbf !important;
+    border-radius: 10px;
+}
