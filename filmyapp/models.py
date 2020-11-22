@@ -40,6 +40,7 @@ class Film(models.Model):
     Studio = models.ForeignKey('Studio', on_delete=models.CASCADE, null=True, related_name='produced_by',
                                verbose_name='Studio')
 
+
     def get_detail_url(self):
         return reverse("edit_movie_generic", args=(self.pk,))
 
